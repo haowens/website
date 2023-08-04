@@ -18,8 +18,9 @@ export default function About(props) {
     <AboutLayout>
       <div data-tina-field={tinaField(data.page, "body")}>
         <div className="flex flex-row justify-center w-5/6 mx-auto">
-          <article className="prose prose-lg prose-h1:text-red-300 prose-a:text-fuchsia-950 prose-h3:text-gray-400 text-white">
+          <article className="prose prose-lg prose-h1:text-red-300 prose-h1:font-kallisto prose-a:text-fuchsia-950 prose-h3:text-gray-400 text-white">
             <TinaMarkdown content={content} />
+            <h1 className="kallisto">This is an h1 heading with the .kallisto style applied.</h1>
           </article>
         </div>
       </div>

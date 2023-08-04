@@ -3,6 +3,7 @@ import Link from "next/link";
 import PostPreview from "../components/PostPreview";
 import EventPreview from "../components/EventPreview";
 import PhotoGallery from "../components/PhotoGallery";
+import InstagramEmbed from "../components/InstagramEmbed";
 
 
 //home page
@@ -26,6 +27,7 @@ export default function Home(props) {
         {/* Left side of the screen container */}
         
         <div className="flex flex-col w-4/6 justify-center mr-10 mt-10">
+        <p className="text-white md:text-5xl mb-2 whitespace-nowrap text-4xl tk-kallisto mx-auto md:mx-0">This Week on WXYC</p>
           <p className="text-white text-2xl">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
@@ -103,6 +105,8 @@ export default function Home(props) {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
+
+          <InstagramEmbed/>
 
         <Link href="/contact" scroll={false} >Submit a PSA!</Link>
 

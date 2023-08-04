@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import Header from './Header'
-// import photo from '../images/10144964.png'
 
 export const Layout = (props) => {
   return (
@@ -9,7 +8,8 @@ export const Layout = (props) => {
       <Head>
         <title>WXYC</title>
         <meta name="description" content="WXYC's website" />
-        <link rel="icon" href="../images/10144964.png" />
+        <link rel="icon" href="/10144964.png" />
+        <link rel="stylesheet" href="https://use.typekit.net/gjm2mim.css"></link>
       </Head>
       <header className='header'>
         <Header/>

@@ -1,3 +1,5 @@
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+
 module.exports = {
   async rewrites() {
     return [
@@ -7,4 +9,11 @@ module.exports = {
       },
     ]
   },
-}
+  webpack: (config, { isServer }) => {
+    // For client-side only, include the polyfills
+    if (!isServer) {
+      config.plugins.push(new NodePolyfillPlugin());
+    }
+    return config;
+  },
+};
