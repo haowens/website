@@ -9,14 +9,35 @@ import Image from 'next/image'
 
 const Header = () => {
     
+        const [isOpen, setIsOpen] = useState(false);
+      
+        const toggleMenu = () => {
+          setIsOpen(!isOpen);
+        };
+    
     return (
     
     //Parent Container
      <div> 
     
     {/* Mobile header */}
-    <div className="bg-gradient-to-b from-neutral-700 to-neutral-900 drop-shadow-sm fixed z-50 top-0 w-full h-12 px-0 md:hidden">
-    
+    <div className="hamburger-menu border-2">
+      {/* Hamburger icon */}
+      <button onClick={toggleMenu} className="hamburger-icon border-2 border-red-500 w-1/2">
+        <div className={`hamburger-line ${isOpen ? 'open' : ''}`} />
+        <div className={`hamburger-line ${isOpen ? 'open' : ''}`} />
+        <div className={`hamburger-line ${isOpen ? 'open' : ''}`} />
+      </button>
+
+      {/* Collapsible menu */}
+      {isOpen && (
+        <ul className="menu">
+          <li>Link 1</li>
+          <li>Link 2</li>
+          <li>Link 3</li>
+          {/* Add more navigation links as needed */}
+        </ul>
+      )}
     </div>
 
     {/* Parent container of entire desktop header  */}
