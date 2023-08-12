@@ -25,7 +25,7 @@ export default function EventList(props) {
     <ArchiveLayout>
       <div className="flex flex-col md:flex-row relative z-20 justify-between items-center -mt-2 md:w-5/6 w-full">
         <div className="relative z-20 text-sm md:text-base mt-5">An archive of WXYC's weekly specialty shows and events. <a href="../programming" className="underline">Learn more about WXYC's specialty programming.</a></div>
-        <div className="mt-3 md:mt-0"><ArchiveDropdown specialtyShows={specialtyShows}/></div>
+        <div className="mt-3"><ArchiveDropdown specialtyShows={specialtyShows}/></div>
       </div>
 
     {/* Desktop banner image */}
