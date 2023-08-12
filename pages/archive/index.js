@@ -49,7 +49,7 @@ export default function EventList(props) {
                 // needs unique key somehow
                 <div>
                 {event.weekEvents && 
-                  <div className="flex flex-row justify-start gap-4 overflow-x-scroll">
+                  <div className="flex flex-row justify-start gap-2 md:gap-4 overflow-x-scroll ">
                     {event.weekEvents.map((event) => (
                     <div key={event.event.id}>
                       <LazyLoad height={200} once={true}>
