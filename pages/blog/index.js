@@ -3,6 +3,7 @@ import PostPreview from "../../components/PostPreview.tsx";
 import LazyLoad from 'react-lazyload';
 import BlogLayout from "../../components/BlogLayout"
 import photo from "/images/concert.jpg"
+import mobilephoto from "/images/concertmobile.jpg"
 import Image from 'next/image'
 
 //blog home page
@@ -12,10 +13,12 @@ export default function PostList(props) {
   return (
     <BlogLayout>
 
-      
+      <div>
       <div className="pt-3 md:pt-0 mx-auto h-32 md:h-24 items-center justify-between w-5/6 flex flex-col md:flex-row">
       <div className="kallisto text-5xl">WXYC PRESS</div>
-      <div className="  flex flex-row  h-1/2 relative z-20 md:h-1/2 justify-center md:justify-end  items-center w-full md:w-1/2 text-lg text-center">
+
+      {/* Desktop blog nav */}
+      <div className="md:flex flex-row  h-1/2  hidden z-20 md:h-1/2 justify-center md:justify-end  items-center w-full md:w-1/2 text-lg text-center">
                     <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
                         <a href="/blog/category/show-review">
                             Show Reviews
@@ -38,13 +41,49 @@ export default function PostList(props) {
                 
               </div>
 
-        <div className="relative z-20 w-5/6 mx-auto mb-10">
-         <p>Read reviews and interviews by WXYC DJs.</p>
+        <div className="relative z-20 w-5/6 mx-auto mb-10 ">
+         <p className="text-center  md:text-left -mt-12 md:-mt-2">Read reviews and interviews by WXYC DJs.</p>
          </div>
 
-         <div className="relative z-10 -mt-20 mb-5 w-5/6 mx-auto">
+        {/* Desktop banner image */}
+         <div className="relative z-10 -mt-20 mb-5 w-5/6 mx-auto hidden md:block">
           <Image  src={photo} alt="A crowded dancefloor at a WXYC event."/>
         </div>
+
+        {/* Mobile banner image */}
+        <div className="relative z-10 md:-mt-20 -mt-20 mb-5 w-5/6 mx-auto md:hidden">
+          <Image  src={mobilephoto} alt="A crowded dancefloor at a WXYC event."/>
+        </div>
+
+        <div>
+          
+        </div>
+
+       {/* Mobile blog nav */}
+        <div className="flex flex-row  h-1/2 mb-2  md:hidden z-20 justify-center  items-center w-5/6 mx-auto text-lg text-center">
+                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
+                        <a href="/blog/category/show-review">
+                            Show Reviews
+                        </a>
+                    </div>
+            
+                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap  px-2 h-full flex flex-col justify-center" >
+                        <a href="/blog/category/album-review">
+                            Album Reviews
+                        </a>
+                    </div>
+            
+                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap px-2 h-full flex flex-col justify-center" >
+                        <a href="/blog/category/artist-interview">
+                            Artist Interviews
+                        </a>
+                    </div>
+            
+                </div>
+                
+              </div>
+              
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto  pb-10">
         
