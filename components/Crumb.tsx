@@ -12,7 +12,7 @@ export default function Crumb({ text, href, last=false }) {
     if (!last && text === "WXYC PRESS") {
       return (
         <Link href={href}>
-          <p className="text-white hover:underline text-2xl">{text}</p>
+          <p className="text-white hover:underline text-base md:text-2xl">{text}</p>
         </Link>
       );
     }
@@ -25,7 +25,7 @@ export default function Crumb({ text, href, last=false }) {
     if (!last && text === "Archive") {
       return (
         <Link href={href}>
-          <p className="text-white hover:underline text-2xl">{text}</p>
+          <p className="text-white hover:underline text-base md:text-2xl">{text}</p>
         </Link>
       );
     }
