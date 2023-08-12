@@ -27,11 +27,11 @@ const MyTable = () => {
     
     <div>
       <div className="sm:mx-auto sm:w-5/6 overflow-auto pb-10"> 
-      <p className="text-5xl mb-2 kallisto">Live Playlist</p>
+      <p className="text-5xl mb-2 ml-1 md:ml-0 kallisto">Live Playlist</p>
 
       <div className="flex flex-row justify-between">
-      <p className="mb-5"> Last updated: </p>
-      <a href="http://wxyc.info/playlists/radioWeek" className="underline">Archive</a>
+      <p className="mb-5 ml-3 md:ml-0"> Last updated: </p>
+      <a href="http://wxyc.info/playlists/radioWeek" className="underline mr-3 md:mr-0">Archive</a>
       </div>
       
       <table className="w-full">
