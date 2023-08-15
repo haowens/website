@@ -45,7 +45,7 @@ const ArchiveDropdown = (props) => {
                     Specialty Shows{" "}
                     <IoIosArrowForward size={20} className="my-auto" />
                   </Menu.Button>
-                  <Menu.Items className="origin-right absolute left-full ml-1  bg-black bg-opacity-50  top-0 mt-0 w-32 kallisto">
+                  <Menu.Items className="origin-right absolute left-full ml-1  bg-black bg-opacity-50  top-0 -mt-10 md:-mt-0 w-32 kallisto">
                     <Menu.Item>
                       <Link
                         legacyBehavior={false}

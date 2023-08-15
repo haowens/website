@@ -11,9 +11,9 @@ export default function Crumb({ text, href, last=false }) {
     //Blog header when you're not on blog home page (links back to blog home page)
     if (!last && text === "WXYC PRESS") {
       return (
-        <Link href={href}>
-          <p className="text-white hover:underline text-2xl">{text}</p>
-        </Link>
+        <a href={href}>
+          <p className="text-white hover:underline text-base md:text-2xl">{text}</p>
+        </a>
       );
     }
 
@@ -24,9 +24,9 @@ export default function Crumb({ text, href, last=false }) {
     //Archive header when you're not on archive home page (links back to archive home page)
     if (!last && text === "Archive") {
       return (
-        <Link href={href}>
-          <p className="text-white hover:underline text-2xl">{text}</p>
-        </Link>
+        <a href={href}>
+          <p className="text-white hover:underline text-base md:text-2xl">{text}</p>
+        </a>
       );
     }
 
@@ -38,8 +38,8 @@ export default function Crumb({ text, href, last=false }) {
   
     // All other crumbs will be rendered as links that can be visited 
     return (
-      <Link href={href}>
+      <a href={href}>
         <p className="text-white hover:underline">{text}</p>
-      </Link>
+      </a>
     );
   }

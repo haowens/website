@@ -5,6 +5,7 @@ import LazyLoad from 'react-lazyload';
 import ArchiveDropdown from "../../components/ArchiveDropdown"
 import ArchiveLayout from "../../components/ArchiveLayout"
 import photo from "/images/crowd.jpg"
+import mobilephoto from "images/crowdmobile.jpg"
 import Image from 'next/image'
 import React, {useState} from "react"
 import SeeMoreButton from "../../components/SeeMoreButton";
@@ -30,13 +31,23 @@ export default function EventList(props) {
     
     <ArchiveLayout>
       <div className="flex flex-col md:flex-row relative z-20 justify-between items-center -mt-2 md:w-5/6 w-full">
-        <div className="relative z-20">An archive of WXYC's weekly specialty shows and events. <a href="../page/programming" className="underline">Learn more about WXYC's specialty programming.</a></div>
-        <div className="mt-3 md:mt-0"><ArchiveDropdown specialtyShows={specialtyShows}/></div>
+
+        <div className="relative z-20 text-sm md:text-base mt-5">An archive of WXYC's weekly specialty shows and events. <a href="../page/programming" className="underline">Learn more about WXYC's specialty programming.</a></div>
+        <div className="mt-3"><ArchiveDropdown specialtyShows={specialtyShows}/></div>
+
       </div>
 
-      <div className="relative z-10 -mt-10">
+    {/* Desktop banner image */}
+      <div className="relative z-10 -mt-10 hidden md:block">
        <Image  src={photo} alt="A crowded dancefloor at a WXYC event."/>
       </div>
+
+
+    {/* Mobile banner image */}
+      <div className="relative z-10 -mt-10 md:hidden">
+       <Image  src={mobilephoto} alt="A crowded dancefloor at a WXYC event."/>
+      </div>
+
 
       <div className="archive-grid w-full mx-auto">
         {structuredData.slice(0, eventsToShow).map((event) => (
@@ -46,7 +57,7 @@ export default function EventList(props) {
                 // needs unique key somehow
                 <div>
                 {event.weekEvents && 
-                  <div className="flex flex-row justify-start gap-4 overflow-x-scroll">
+                  <div className="flex flex-row justify-start gap-2 md:gap-4 overflow-x-scroll ">
                     {event.weekEvents.map((event) => (
                     <div key={event.event.id}>
                       <LazyLoad height={200} once={true}>
