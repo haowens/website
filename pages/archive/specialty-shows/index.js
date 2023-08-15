@@ -4,6 +4,7 @@ import {groupEventsByWeek, generateStructuredData} from '../../../components/Org
 import Link from "next/link";
 import ArchiveLayout from "../../../components/ArchiveLayout"
 import React, {useState} from "react"
+import SeeMoreButton from "../../../components/SeeMoreButton";
 
 const SpecialtyShowsPage = (props) => {
   const [eventsToShow, setEventsToShow] = useState(20);
@@ -63,14 +64,7 @@ const SpecialtyShowsPage = (props) => {
     </div>}
 
     {eventsToShow < structuredData.length && (
-        <div className="flex justify-center mt-4">
-          <button
-            className="text-blue-500 hover:underline"
-            onClick={loadMoreEvents}
-          >
-            See More
-          </button>
-        </div>
+      <SeeMoreButton onClick={loadMoreEvents}/>
       )}
 
     </ArchiveLayout>

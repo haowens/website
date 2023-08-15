@@ -6,6 +6,7 @@ import photo from "/images/concert.jpg"
 import Image from 'next/image'
 import React, {useState} from "react"
 import Link from "next/link";
+import SeeMoreButton from "../../components/SeeMoreButton.tsx";
 
 //blog home page
 export default function PostList(props) {
@@ -74,14 +75,7 @@ export default function PostList(props) {
         </div>
 
         {postsToShow < postsList.length && (
-        <div className="flex justify-center mt-4">
-          <button
-            className="text-blue-500 hover:underline"
-            onClick={loadMorePosts}
-          >
-            See More
-          </button>
-        </div>
+          <SeeMoreButton onClick={loadMorePosts} />
       )}
     </BlogLayout>
   );
