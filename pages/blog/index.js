@@ -24,7 +24,7 @@ export default function PostList(props) {
       <div className="kallisto text-5xl">WXYC PRESS</div>
       <div className="  flex flex-row  h-1/2 relative z-50 md:h-1/2 justify-center md:justify-end  items-center w-full md:w-1/2 text-lg text-center">
                     <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
-                        <a href="/blog/category/show-review">
+                        <a href="/blog/show-review">
                             Show Reviews
                         </a>
                     </div>
