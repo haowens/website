@@ -5,9 +5,18 @@ import BlogLayout from "../../components/BlogLayout"
 import photo from "/images/concert.jpg"
 import mobilephoto from "/images/concertmobile.jpg"
 import Image from 'next/image'
+import React, {useState} from "react"
+import Link from "next/link";
+import SeeMoreButton from "../../components/SeeMoreButton.tsx";
 
 //blog home page
 export default function PostList(props) {
+  const [postsToShow, setPostsToShow] = useState(18);
+
+  const loadMorePosts = () => {
+    setPostsToShow(postsToShow + 18);
+  };
+
   const postsList = props.data.blogConnection.edges;
 
   return (
@@ -20,21 +29,21 @@ export default function PostList(props) {
       {/* Desktop blog nav */}
       <div className="md:flex flex-row  h-1/2  hidden z-20 md:h-1/2 justify-center md:justify-end  items-center w-full md:w-1/2 text-lg text-center">
                     <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
-                        <a href="/blog/category/show-review">
-                            Show Reviews
-                        </a>
+                        <Link href="/blog/category/show-review">
+                        Show Reviews
+                        </Link>        
                     </div>
             
                     <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap  px-2 h-full flex flex-col justify-center" >
-                        <a href="/blog/category/album-review">
-                            Album Reviews
-                        </a>
+                        <Link href="/blog/category/album-review">
+                          Album Reviews
+                        </Link>     
                     </div>
             
                     <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap px-2 h-full flex flex-col justify-center" >
-                        <a href="/blog/category/artist-interview">
-                            Artist Interviews
-                        </a>
+                        <Link href="/blog/category/artist-interview">
+                          Artist Interviews
+                        </Link> 
                     </div>
             
                 </div>
@@ -88,7 +97,7 @@ export default function PostList(props) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto  pb-10">
         
         
-          {postsList.map((post) => (
+          {postsList.slice(0, postsToShow).map((post) => (
           <LazyLoad height={200} once={true} key={post.node.id}>
             <div className="flex justify-center">
             <PostPreview 
@@ -103,6 +112,10 @@ export default function PostList(props) {
           ))}
           
         </div>
+
+        {postsToShow < postsList.length && (
+          <SeeMoreButton onClick={loadMorePosts} />
+      )}
     </BlogLayout>
   );
 }

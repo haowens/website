@@ -21,7 +21,9 @@ export default function Home(props) {
           <p className="text-white md:text-5xl mb-2 md:mb-4 whitespace-nowrap text-4xl kallisto mx-auto md:mx-0">This Week on WXYC</p>
           {events && (
             //This Week on WXYC
+
             <div className="mx-auto md:mx-0 ">
+
             <div className=" md:mt-0 mt-6 mb-10 flex flex-col md:flex-row md:gap-4 gap-6 md:overflow-x-scroll snap-mandatory mx-auto">
               {events.map((event) => (
                 //Event previews
@@ -103,14 +105,13 @@ export default function Home(props) {
           ></iframe>
         <div className="bg-gradient-to-b from-neutral-200 to-neutral-400 hover:text-neutral-700 text-black  w-5/6 flex flex-col justify-center items-center h-16 border-0 rounded-3xl mt-10 text-xl ">
           <div>
+
         <Link href="mailto:psa@wxyc.org" scroll={false} >Submit a PSA!</Link>
+
           </div>
         </div>
 
         </div>
-
-      
-          
       </div>
 
       <div className=" hidden md:visible md:flex justify-center items-center mx-auto w-2/3 mt-20">

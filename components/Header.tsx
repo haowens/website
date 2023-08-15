@@ -117,9 +117,13 @@ const Header = () => {
             </div>
 
             <div className="hover:bg-neutral-300 h-12 flex items-center justify-center grow ">
+
             <a href="/programming" className="nav">
+
+            <Link href="/page/programming" className="nav">
+
                     <p className="text-black text-base no-underline cursor-pointer">Programming</p>
-                </a>
+                </Link>
             </div>
 
             <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
@@ -135,9 +139,13 @@ const Header = () => {
             </div>
             
             <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
-            <a href="/contact">
+
+          
+
+            <Link href="/page/contact">
+
                     <p className="text-black text-base no-underline cursor-pointer">Contact</p>
-                </a>
+                </Link>
             </div>   
                
             <div className="hover:bg-neutral-300 h-12 flex justify-center items-center grow ">
