@@ -63,7 +63,7 @@ export const getStaticPaths = async () => {
   // const paths = data.categoryConnection.edges.map((x) => {
   //   return { params: { slug: x.node._sys.filename } };
   // });
-  const paths = [{params: {slug: "album-review"}}, {params: {slug: "artist-interview"}}];
+  const paths = [{params: {slug: "show-review"}}, {params: {slug: "album-review"}}, {params: {slug: "artist-interview"}}];
  
   return {
     paths,
