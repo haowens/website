@@ -1,13 +1,19 @@
 import { client } from "../../../tina/__generated__/client";
-import Link from "next/link";
 import PostPreview from "../../../components/PostPreview";
 import BlogLayout from "../../../components/BlogLayout";
+import React, {useState} from "react"
 
 const BlogCategoryPage = (props) => {
-  let sortedEvents = [];
+  const [postsToShow, setPostsToShow] = useState(18);
+
+  const loadMorePosts = () => {
+    setPostsToShow(postsToShow + 18);
+  };
+
+  let postsList = [];
   if (props.data.blogConnection.edges.length > 0) {
-    props.data.blogConnection.edges.forEach((event) => {
-      sortedEvents.push(event);
+    props.data.blogConnection.edges.forEach((post) => {
+      postsList.push(post);
     })
   } 
 
@@ -20,9 +26,9 @@ const BlogCategoryPage = (props) => {
       <h1 className="text-5xl mb-2 kallisto">{category}s</h1>
       </div>
       
-      {(sortedEvents.length > 0) && 
+      {(postsList.length > 0) && 
       <div className="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto pb-10">
-        {sortedEvents.map((post) => (
+        {postsList.slice(0, postsToShow).map((post) => (
           <PostPreview 
             id={post.node.id} 
             title={post.node.title} 
@@ -32,6 +38,17 @@ const BlogCategoryPage = (props) => {
           /> 
         ))}
       </div>}
+
+      {postsToShow < postsList.length && (
+        <div className="flex justify-center mt-4">
+          <button
+            className="text-blue-500 hover:underline"
+            onClick={loadMorePosts}
+          >
+            See More
+          </button>
+        </div>
+      )}
     </BlogLayout>
   );
 }
@@ -40,10 +57,11 @@ export default BlogCategoryPage;
 
 
 export const getStaticPaths = async () => {
-  const { data } = await client.queries.categoryConnection();
-  const paths = data.categoryConnection.edges.map((x) => {
-    return { params: { slug: x.node._sys.filename } };
-  });
+  // const { data } = await client.queries.categoryConnection();
+  // const paths = data.categoryConnection.edges.map((x) => {
+  //   return { params: { slug: x.node._sys.filename } };
+  // });
+  const paths = [{ params: { slug: "show-review"}}, {params: {slug: "album-review"}}, {params: {slug: "artist-interview"}}];
  
   return {
     paths,
@@ -52,7 +70,6 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (ctx) => {
-    // const { data, query, variables } = await client.queries.blogConnection();
     const title = await client.request({
       query: `
         query getTitle($relativePath: String) {

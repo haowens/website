@@ -1,9 +1,7 @@
-import Link from "next/link";
+
 import BlogBreadcrumbs from "./BlogBreadcrumbs";
-import BlogHeader from "./BlogHeader";
 
-
-const BlogLayout = ({children}) => {
+const BlogLayout = (props) => {
     
     return(
 
@@ -14,7 +12,7 @@ const BlogLayout = ({children}) => {
                 
             </div>
 
-            {children}
+            {props.children}
             
         </div>
     )

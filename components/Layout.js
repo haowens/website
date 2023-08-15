@@ -5,7 +5,7 @@ import Header from './Header'
 
 export const Layout = (props) => {
   return (
-    <div>
+    <div className=''>
       <Head>
         <title>WXYC</title>
         <meta name="description" content="WXYC's website" />
@@ -16,7 +16,7 @@ export const Layout = (props) => {
         <Header/>
       </header>
      
-      <main className >{props.children}</main>
+      <main className="">{props.children}</main>
     </div>
   )
 }

@@ -2,9 +2,15 @@ import { client } from "../../../tina/__generated__/client";
 import EventPreview from "../../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../../components/OrganizingArchive';
 import ArchiveLayout from "../../../components/ArchiveLayout"
+import React, {useState} from "react"
 
 const ArchiveCategoryPage = (props) => {
-  
+  const [eventsToShow, setEventsToShow] = useState(20);
+
+  const loadMoreEvents = () => {
+    setEventsToShow(eventsToShow + 20);
+  };
+
   let structuredData = [];
   let sortedEvents = [];
 
@@ -31,14 +37,14 @@ const ArchiveCategoryPage = (props) => {
       <div className="w-full mx-auto">
      
       <p className="text-5xl mb-10 mt-2 kallisto">{category}s</p>
-      {description && <p>{description}</p>} 
+      {description && <p className="mb-10 w-3/5">{description}</p>} 
       </div>
       
 
       {(structuredData.length > 0) && 
       <div>
         <div className="archive-grid w-full mx-auto">
-        {structuredData.map((event) => (
+        {structuredData.slice(0, eventsToShow).map((event) => (
             <div className="mb-7" key={event.id}>
                 {(event.type === 'heading') && <p className="text-3xl font-bold">Week of {event.weekStartDate}</p>}
                 {(event.type === 'events' &&
@@ -61,6 +67,17 @@ const ArchiveCategoryPage = (props) => {
       </div>
     
       </div>}
+
+      {eventsToShow < structuredData.length && (
+        <div className="flex justify-center mt-4">
+          <button
+            className="text-blue-500 hover:underline"
+            onClick={loadMoreEvents}
+          >
+            See More
+          </button>
+        </div>
+      )}
 
 
     </ArchiveLayout>

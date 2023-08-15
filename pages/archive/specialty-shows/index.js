@@ -2,13 +2,15 @@ import { client } from "../../../tina/__generated__/client";
 import EventPreview from "../../../components/EventPreview";
 import {groupEventsByWeek, generateStructuredData} from '../../../components/OrganizingArchive';
 import Link from "next/link";
-import ArchiveDropdown from "../../../components/ArchiveDropdown";
 import ArchiveLayout from "../../../components/ArchiveLayout"
-import Image from 'next/image'
-
-
+import React, {useState} from "react"
 
 const SpecialtyShowsPage = (props) => {
+  const [eventsToShow, setEventsToShow] = useState(20);
+
+  const loadMoreEvents = () => {
+    setEventsToShow(eventsToShow + 20);
+  };
 
   let structuredData = [];
   let sortedEvents = [];
@@ -35,9 +37,9 @@ const SpecialtyShowsPage = (props) => {
       {(structuredData.length > 0) && 
       <div>
         <div className="archive-grid w-full mx-auto">
-        {structuredData.map((event) => (
+        {structuredData.slice(0, eventsToShow).map((event) => (
             <div key={event.id}>
-                {(event.type === 'heading') && <h3 className="text-3xl mb-2 font-bold">Week of {event.weekStartDate}</h3>}
+                {(event.type === 'heading') && <h3 className="text-3xl mt-10 mb-2 font-bold">Week of {event.weekStartDate}</h3>}
                 {(event.type === 'events' &&
                 <div key={event.id}>
                 {event.weekEvents && <div className="flex flex-row justify-start gap-4 overflow-x-scroll">
@@ -59,6 +61,18 @@ const SpecialtyShowsPage = (props) => {
         ))}
       </div>
     </div>}
+
+    {eventsToShow < structuredData.length && (
+        <div className="flex justify-center mt-4">
+          <button
+            className="text-blue-500 hover:underline"
+            onClick={loadMoreEvents}
+          >
+            See More
+          </button>
+        </div>
+      )}
+
     </ArchiveLayout>
   );
 }
