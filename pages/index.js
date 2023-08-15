@@ -119,7 +119,7 @@ export default function Home(props) {
     <PhotoGallery/>
   </div>
 
-  <div className="w-full flex justify-center items-center gap-10 md:gap-24 mt-12 mb-10">
+  <div className="w-full flex justify-center items-center gap-10 md:gap-24 mt-12 pb-10">
     <a href="https://www.instagram.com/wxyc893/?hl=en"><AiFillInstagram size={48} className="ml-1 mt-0.5" /></a>
    <a href="https://twitter.com/wxyc?lang=en"><AiFillTwitterCircle size={48} className="ml-1 mt-0.5" /></a>
    <a href="mailto:info@wxyc.org"> <FiMail  size={48} className="ml-1 mt-0.5" /></a>

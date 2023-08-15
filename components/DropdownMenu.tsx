@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { Menu } from "@headlessui/react"
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
@@ -22,12 +21,9 @@ const DropdownMenu = () =>  {
                     </div>
                     <div className="flex justify-center items-center text-medium md:hover:bg-gray-200 rounded-md text-white md:text-black  w-full px-4 py-2">
                         <Menu.Item>
-                            <a href="/playlist">
+                            <Link href="/playlist">
                                 Live playlist
-                            </a>
-                            {/* <Link legacyBehavior={false} href="/playlist">
-                                <p>Live playlist</p>
-                            </Link> */}
+                            </Link>
                         </Menu.Item>
                     </div>
                 </Menu.Items>

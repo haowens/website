@@ -23,39 +23,41 @@ export default function PostList(props) {
     <BlogLayout>
 
       <div>
-      <div className="pt-3 md:pt-0 mx-auto h-32 md:h-24 items-center justify-between w-5/6 flex flex-col md:flex-row">
-      <div className="kallisto text-5xl">WXYC PRESS</div>
+        <div className="pt-3 md:pt-0 mx-auto h-32 md:h-24 items-center justify-between w-5/6 flex flex-col md:flex-row">
+          <div className="kallisto text-5xl">
+            WXYC PRESS
+          </div>
 
-      {/* Desktop blog nav */}
-      <div className="md:flex flex-row  h-1/2  hidden z-20 md:h-1/2 justify-center md:justify-end  items-center w-full md:w-1/2 text-lg text-center">
-                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
-                        <Link href="/blog/category/show-review">
-                        Show Reviews
-                        </Link>        
-                    </div>
+          {/* Desktop blog nav */}
+          <div className="md:flex flex-row  h-1/2  hidden z-20 md:h-1/2 justify-center md:justify-end  items-center w-full md:w-1/2 text-lg text-center">
+            <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
+              <Link href="/blog/category/show-review">
+                Show Reviews
+              </Link>        
+            </div>
             
-                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap  px-2 h-full flex flex-col justify-center" >
-                        <Link href="/blog/category/album-review">
-                          Album Reviews
-                        </Link>     
-                    </div>
+            <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap  px-2 h-full flex flex-col justify-center" >
+              <Link href="/blog/category/album-review">
+                Album Reviews
+              </Link>     
+            </div>
             
-                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap px-2 h-full flex flex-col justify-center" >
-                        <Link href="/blog/category/artist-interview">
-                          Artist Interviews
-                        </Link> 
-                    </div>
+            <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap px-2 h-full flex flex-col justify-center" >
+              <Link href="/blog/category/artist-interview">
+                Artist Interviews
+              </Link> 
+            </div>
             
-                </div>
+          </div>
                 
-              </div>
+        </div>
 
         <div className="relative z-20 w-5/6 mx-auto mb-10 ">
-         <p className="text-center  md:text-left -mt-12 md:-mt-2">Read reviews and interviews by WXYC DJs.</p>
-         </div>
+          <p className="text-center  md:text-left -mt-12 md:-mt-2">Read reviews and interviews by WXYC DJs.</p>
+        </div>
 
         {/* Desktop banner image */}
-         <div className="relative z-10 -mt-20 mb-5 w-5/6 mx-auto hidden md:block">
+        <div className="relative z-10 -mt-20 mb-5 w-5/6 mx-auto hidden md:block">
           <Image  src={photo} alt="A crowded dancefloor at a WXYC event."/>
         </div>
 
@@ -64,33 +66,29 @@ export default function PostList(props) {
           <Image  src={mobilephoto} alt="A crowded dancefloor at a WXYC event."/>
         </div>
 
-        <div>
-          
-        </div>
-
        {/* Mobile blog nav */}
         <div className="flex flex-row  h-1/2 mb-2  md:hidden z-20 justify-center  items-center w-5/6 mx-auto text-lg text-center">
-                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
-                        <a href="/blog/category/show-review">
-                            Show Reviews
-                        </a>
-                    </div>
+          <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap   px-2 h-full flex flex-col justify-center " >
+            <Link href="/blog/category/show-review">
+              Show Reviews
+            </Link>
+          </div>
             
-                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap  px-2 h-full flex flex-col justify-center" >
-                        <a href="/blog/category/album-review">
-                            Album Reviews
-                        </a>
-                    </div>
+          <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap  px-2 h-full flex flex-col justify-center" >
+            <Link href="/blog/category/album-review">
+              Album Reviews
+            </Link>
+          </div>
             
-                    <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap px-2 h-full flex flex-col justify-center" >
-                        <a href="/blog/category/artist-interview">
-                            Artist Interviews
-                        </a>
-                    </div>
+          <div className="hover:underline kallisto mx-2 md:mr-0 md:whitespace-nowrap px-2 h-full flex flex-col justify-center" >
+            <Link href="/blog/category/artist-interview">
+              Artist Interviews
+            </Link>
+          </div>
             
-                </div>
+        </div>
                 
-              </div>
+      </div>
               
 
 

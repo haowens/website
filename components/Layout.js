@@ -5,7 +5,7 @@ import Header from './Header'
 
 export const Layout = (props) => {
   return (
-    <div className=''>
+    <div className='w-full'>
       <Head>
         <title>WXYC</title>
         <meta name="description" content="WXYC's website" />
