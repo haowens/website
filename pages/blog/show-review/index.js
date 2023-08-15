@@ -3,7 +3,7 @@ import PostPreview from "../../../components/PostPreview";
 import BlogLayout from "../../../components/BlogLayout";
 import React, {useState} from "react"
 
-const BlogCategoryPage = (props) => {
+const ShowReviewPage = (props) => {
   const [postsToShow, setPostsToShow] = useState(18);
 
   const loadMorePosts = () => {
@@ -17,7 +17,7 @@ const BlogCategoryPage = (props) => {
     })
   } 
 
-  const category = props.title.data.category.title;
+  const category = "Show Review";
 
   return (
     <BlogLayout>
@@ -55,36 +55,10 @@ const BlogCategoryPage = (props) => {
   );
 }
 
-export default BlogCategoryPage;
-
-
-export const getStaticPaths = async () => {
-  // const { data } = await client.queries.categoryConnection();
-  // const paths = data.categoryConnection.edges.map((x) => {
-  //   return { params: { slug: x.node._sys.filename } };
-  // });
-  const paths = [{params: {slug: "album-review"}}, {params: {slug: "artist-interview"}}];
- 
-  return {
-    paths,
-    fallback: "blocking",
-  };
-};
+export default ShowReviewPage;
 
 export const getStaticProps = async (ctx) => {
-    const title = await client.request({
-      query: `
-        query getTitle($relativePath: String) {
-          category(relativePath: $relativePath) {
-            title
-          }
-        }
-      `,
-      variables: 
-      {
-        "relativePath": ctx.params.slug + ".md"
-      }
-    })
+    const title = "show-review.md";
 
     const { data } = await client.request({
       query: `
@@ -107,7 +81,7 @@ export const getStaticProps = async (ctx) => {
       }
     }`,
         variables: {
-          "title": title.data.category.title,
+          "title": "Show Review"
         }
     })
 
