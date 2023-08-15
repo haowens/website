@@ -7,6 +7,7 @@ import ArchiveLayout from "../../components/ArchiveLayout"
 import photo from "/images/crowd.jpg"
 import Image from 'next/image'
 import React, {useState} from "react"
+import SeeMoreButton from "../../components/SeeMoreButton";
 
 
 export default function EventList(props) {
@@ -67,14 +68,7 @@ export default function EventList(props) {
       </div>
 
       {eventsToShow < structuredData.length && (
-        <div className="flex justify-center mt-4">
-          <button
-            className="text-blue-500 hover:underline"
-            onClick={loadMoreEvents}
-          >
-            See More
-          </button>
-        </div>
+        <SeeMoreButton onClick={loadMoreEvents} />
       )}
 
     </ArchiveLayout>

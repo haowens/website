@@ -1,6 +1,7 @@
 import { client } from "../../../tina/__generated__/client";
 import PostPreview from "../../../components/PostPreview";
 import BlogLayout from "../../../components/BlogLayout";
+import SeeMoreButton from "../../../components/SeeMoreButton";
 import React, {useState} from "react"
 
 const BlogCategoryPage = (props) => {
@@ -42,14 +43,7 @@ const BlogCategoryPage = (props) => {
       </div>}
 
       {postsToShow < postsList.length && (
-        <div className="flex justify-center mt-4">
-          <button
-            className="text-blue-500 hover:underline"
-            onClick={loadMorePosts}
-          >
-            See More
-          </button>
-        </div>
+        <SeeMoreButton onClick={loadMorePosts} />
       )}
     </BlogLayout>
   );
