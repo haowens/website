@@ -9,8 +9,3 @@ const CategoryPage = (props) => {
 }
 
 export default CategoryPage;
-
-
-export const getStaticProps = async () => {
-  return {}
-}
