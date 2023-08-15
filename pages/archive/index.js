@@ -6,9 +6,15 @@ import ArchiveDropdown from "../../components/ArchiveDropdown"
 import ArchiveLayout from "../../components/ArchiveLayout"
 import photo from "/images/crowd.jpg"
 import Image from 'next/image'
+import React, {useState} from "react"
 
 
 export default function EventList(props) {
+  const [eventsToShow, setEventsToShow] = useState(20);
+
+  const loadMoreEvents = () => {
+    setEventsToShow(eventsToShow + 20);
+  };
 
   const eventsList = props.data.archiveConnection.edges;
   const groupedEvents = groupEventsByWeek(eventsList);
@@ -32,7 +38,7 @@ export default function EventList(props) {
       </div>
 
       <div className="archive-grid w-full mx-auto">
-        {structuredData.map((event) => (
+        {structuredData.slice(0, eventsToShow).map((event) => (
             <div key={event.id}>
                 {(event.type === 'heading') && <p className="text-3xl mt-10 mb-2 font-bold">Week of {event.weekStartDate}</p>}
                 {(event.type === 'events' &&
@@ -59,6 +65,18 @@ export default function EventList(props) {
 
         ))}
       </div>
+
+      {eventsToShow < structuredData.length && (
+        <div className="flex justify-center mt-4">
+          <button
+            className="text-blue-500 hover:underline"
+            onClick={loadMoreEvents}
+          >
+            See More
+          </button>
+        </div>
+      )}
+
     </ArchiveLayout>
   );
 }

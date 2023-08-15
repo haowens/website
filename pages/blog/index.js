@@ -4,9 +4,16 @@ import LazyLoad from 'react-lazyload';
 import BlogLayout from "../../components/BlogLayout"
 import photo from "/images/concert.jpg"
 import Image from 'next/image'
+import React, {useState} from "react"
 
 //blog home page
 export default function PostList(props) {
+  const [postsToShow, setPostsToShow] = useState(18);
+
+  const loadMorePosts = () => {
+    setPostsToShow(postsToShow + 18);
+  };
+
   const postsList = props.data.blogConnection.edges;
 
   return (
@@ -49,7 +56,7 @@ export default function PostList(props) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-around gap-4 w-5/6 mx-auto  pb-10">
         
         
-          {postsList.map((post) => (
+          {postsList.slice(0, postsToShow).map((post) => (
           <LazyLoad height={200} once={true} key={post.node.id}>
             <div className="flex justify-center">
             <PostPreview 
@@ -64,6 +71,17 @@ export default function PostList(props) {
           ))}
           
         </div>
+
+        {postsToShow < postsList.length && (
+        <div className="flex justify-center mt-4">
+          <button
+            className="text-blue-500 hover:underline"
+            onClick={loadMorePosts}
+          >
+            See More
+          </button>
+        </div>
+      )}
     </BlogLayout>
   );
 }
