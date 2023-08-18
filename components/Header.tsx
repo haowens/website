@@ -118,7 +118,7 @@ const Header = () => {
 
             <div className="hover:bg-neutral-300 h-12 flex items-center justify-center grow ">
 
-            <a href="/programming" className="nav">
+            
 
             <Link href="/page/programming" className="nav">
 
